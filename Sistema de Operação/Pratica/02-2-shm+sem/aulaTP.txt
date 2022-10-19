@@ -1,0 +1,64 @@
+criar
+IPC_CREAT - criar umnovo IPC
+IPC_EXCL - exclusivo 
+key - poide ser private, 
+size - 
+0600 - octa--- premição (read, writ, x) tem premissão para leitur
+pshmget  ***
+pshmat ** 
+
+já exis
+key, 0, 0
+
+
+
+0x -- hex
+0---oct
+  ---dec
+101010101010101010101010p1010101010101010101010101001010101010101010101010101010101010101001010101010010101010101001010010101
+
+criar e mapear o segmento de memoria---pshmat
+pshmt -- inverso
+//destroy shm 
+pshmctl 
+IPC_RMID  -destroir o segmento de memoria partilada
+lista ligada não é continua na memoria então a melhor escolha é array, mas array circular*
+*não é circular, mas nós a intpretamos-la com circular,:[i+1]%N; arretimetica modular;
+
+
+semafaros, permite permitir que apenas um priocesso seja executado na seção critica, com a ação up/down. 
+*craete é chamdo antes do fork(); SÃo partilhados as variaveil
+
+secção critica, e no white caso esteja executado por dois processos, se um pensar que há apenas um elemnto e outro retira-lo, o outo vai executar sem ter elemento. 
+eu acho*****
+atomico--- nenhum outo processo interfira na execução 
+
+
+criar seman:
+psemget;
+destroy:
+psemctl
+up:
+struct sembuf up = {0,1,0}; // 1-0) primeiro elemento do arry(1 sema), 2-1) é o incrementar, 3-0) é o fim a fila;
+{0,1,1,-1,0} up 1 sema e down o 2;
+
+
+
+contagem então podemos usar os semafaros. eu acho. 
+semafaros é só para sincronização
+
+
+ipcrm----permite destroir os recursos ipc/ ipcrm -s nº-semafaros
+rebot---all destroy
+
+
+
+int slot[2 > [fifoiz]
+
+
+
+
+
+
+
+ 

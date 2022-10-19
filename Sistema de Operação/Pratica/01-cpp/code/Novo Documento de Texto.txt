@@ -1,0 +1,5 @@
+Node *p = head;
+while(p ! = null){
+do something whith p
+    p= p-> next;
+}
