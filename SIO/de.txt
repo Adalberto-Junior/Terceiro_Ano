@@ -1,0 +1,6 @@
+1 read file
+2 read argment a key 
+3 src/vst/algo
+
+658
+658 mod 16 2

@@ -12,6 +12,8 @@ stem(Sx, px)
 xlim([0 7])
 grid on
 
+%(b) num segundo grafico da mesma figura, desenhe o gr ´ afico da func¸ ´ ao de distribuic¸ ˜ ao acumulada (use ˜
+%a func¸ao˜ stairs do Matlab).
 
 fx = cumsum(px);
 subplot(1,2,2)

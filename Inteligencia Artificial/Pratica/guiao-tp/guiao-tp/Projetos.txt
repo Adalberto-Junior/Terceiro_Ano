@@ -1,0 +1,24 @@
+def top_rigth():
+    return ["s","s","s","s","s","d","d","d","d","d"]
+ inputs += top_rigth()
+        #return ' '
+        inputs.append(" ")
+        return inputs
+       
+
+ for pos in game_layout:
+            if inputs.count(" ") == 0:
+                if pos != 'A':
+                    inputs.append(" ")
+                """else:
+                    if  i % 6 == 0:
+                        inputs.append("a")
+                        flag = not flag
+                    else:
+                        if flag:
+                            inputs.append("w")
+                        else:
+                            inputs.append("s")"""
+            else:
+                #inputs.append("w")
+                i+=1

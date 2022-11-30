@@ -1,0 +1,26 @@
+03--Training exam
+1) Identificar entidade activa:
+	Patient, norse, doctor --> thread/semaphores
+2) Identifaicar os modulos/memória partilhados:             |-----------exclusão mutua--> mutex/semaph/binario 
+	PFifo --> operção publica com regiões criticas -----|
+3) se aplocavel, identificar ponto direto entre entidades   |-----------inicizi_cond---> mutex_cond/semaph/binario
+	doctor-> patient(done)------------------------------|-----------|
+									|
+									|--------mutex
+									|--------mutex_cond
+									|-------boll var[nPatient]
+
+Execução:
+
+
+--------------------------------------------------------------------------------------|
+1Implementar a EA---> Thread/semaph
+2Implementar os modulos partilhado
+3)
+ terminar done! 
+
+
+debug:
+gdb/urgency
+(gdb) run -n 2
+where thread 2

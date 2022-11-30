@@ -1,0 +1,201 @@
+aula2: 
+
+#Exercicio 4.1
+from cmath import atan
+from math import atan2
+import math
+
+
+impar = lambda x : x%2!=0
+
+#Exercicio 4.2
+positivo = lambda x : x > 0
+
+#Exercicio 4.3
+comparar_modulo = lambda x, y : abs(x) < abs(y)
+
+#Exercicio 4.4
+cart2pol = lambda cc : (math.sqrt(cc[0]**2 + cc[1]**2), atan2(cc[1],cc[0]))
+
+#Exercicio 4.5
+ex5 = lambda f,g,h : lambda x,y,z : h(f(x,y),g(y,z))
+
+#def ex5r(h,f,g):
+ #   return lambda x,y,z : h(f(x,y), g(y,z))
+
+#Exercicio 4.6
+def quantificador_universal(lista, f):
+    if lista == []:
+        return True
+    if f(lista[0]):
+        return quantificador_universal(lista[1:0],f)
+    return False 
+
+
+#Exercicio 4.9
+def ordem(lista, f):
+    pass
+
+#Exercicio 4.10
+def filtrar_ordem(lista, f):
+    pass
+
+#Exercicio 5.2
+def ordenar_seleccao(lista, ordem):
+    pass
+
+
+aula1.py:
+
+
+
+#Exercicio 1.1
+
+def comprimento(lista):
+	if lista ==[]:
+		return 0
+	return 1 +comprimento(lista[1:])
+
+#Exercicio 1.2
+def soma(lista):
+	if lista == []:
+		return 0
+	return lista[0] + soma(lista[1:])
+
+#Exercicio 1.3
+def existe(lista, elem):
+	if lista == []:
+		return False
+	return ((lista[0] == elem) or (existe(lista[1:], elem)))
+
+#Exercicio 1.4
+def concat(l1, l2):
+	if l1 == []:
+		return l2
+
+	rec = concat(l1[1:], l2)
+	rec[:0] = [l1[0]]
+
+	#rec =l1[:0] + concat(l1[1:],l2[1:])
+	#rec[len(l1):] = [l2[0]]
+	return rec
+	
+
+#Exercicio 1.5
+def inverte(lista):
+	if lista == []:
+		return []
+	list = inverte(lista[1:])
+	list[len(list):] = [lista[0]]
+	return list
+	
+
+#Exercicio 1.6
+def capicua(lista):
+	if lista == []:
+		return True
+		
+	return lista[0]==lista[-1] and capicua(lista[1:len(lista)-1])
+	
+
+#Exercicio 1.7
+def concat_listas(lista):
+	if lista == []:
+		return []
+	l = lista[0]
+	l1 = concat_listas(lista[1:])
+	return concat(l,l1)
+	   
+	
+
+#Exercicio 1.8
+def substitui(lista, original, novo):
+	if lista ==[]:
+		return []
+	rec = substitui(lista[1:], original, novo)
+	if lista[0] == original:
+		lista[0] = novo
+	rec[:0] = [lista[0]]
+	return rec
+
+
+#Exercicio 1.9
+def fusao_ordenada(lista1, lista2):
+	if lista1 ==[]:
+		return lista2
+	if lista2 == []:
+		return 
+	#if lista2 == []:
+	#	return []
+	#rec = []
+	#rec[1:] = fusao_ordenada(lista1[1:],lista2)
+	rec = fusao_ordenada(lista1[1:],lista2)
+	rec[:0] = [lista1[0]]
+	return rec
+
+#Exercicio 1.10
+def lista_subconjuntos(lista):
+	if lista == []:
+		return []
+	#rec = [()]
+	rec = lista_subconjuntos(lista[1:])
+	rec[:0] = [lista[0]]
+	return rec
+
+
+#Exercicio 2.1
+def separar(lista):
+	if lista == []:
+		return ([])
+	rec = separar(lista[1:])
+	rec[:0] = [lista[0]]
+	return rec
+	#return lista[0] + separar(lista[1:])
+	"""~
+	rip = tuple(lista[0])
+	if rip[0] == rec[0]:
+		rec[:0] = rip[0]
+	else: 
+		rec[:1] = rip[0]
+	if rip[1] == rec[0]:
+		rec[:0] = rip[1]
+	else: 
+		rec[:1] = rip[1]
+	return rec
+	"""
+	
+	
+
+#Exercicio 2.2
+def remove_e_conta(lista, elem):
+	pass
+
+#Exercicio 3.1
+def cabeca(lista):
+	if lista == []:
+		return None
+	return lista[0]
+	
+
+#Exercicio 3.2
+def cauda(lista):
+	if lista == []:
+		return None
+	return lista[:1]
+
+#Exercicio 3.3
+def juntar(l1, l2):
+    pass
+
+#Exercicio 3.4
+def menor(lista):
+	if lista == []:
+		return None
+	x = lista[0]
+	return x and menor(lista[1:])
+
+
+#Exercicio 3.6
+def max_min(lista):
+	pass
+

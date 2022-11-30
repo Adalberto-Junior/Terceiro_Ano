@@ -1,0 +1,3 @@
+.bin/soma2 -h
+
+.bin/soma2 -h -m 0x800 -p

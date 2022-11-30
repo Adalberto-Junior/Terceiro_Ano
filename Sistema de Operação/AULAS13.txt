@@ -1,0 +1,14 @@
+Aula: 13/10/2022
+
+só posso fazer o join se a thred estiver em detach*
+o exit() termina toddos os processos, então temos de usar o thread_exit para terminar a thread em questão.
+Não posso usar == para comparação entre as thread(ids), tenho que usar o pthread_equal return int (c boolean)
+quem Eu sou!* --- pthread_self  return pthread_t
+**tem de ser atomica: partilho de memoria: exclusão mutua: MUTEX: mutex_lock-entrar e ninguém mais entra/porta fechada---> mutex_unlock-porta aberta, 
+mutex_trylock: ser não bloqueante;
+as região critica não é a estrutura de dados.
+
+sinaleiro
+wait--> garanti a exclusão mutua/atomicidade.caso não tenha nehum signal
+signal-> só uma thread é acordada
+broadcast-> acorda todas threads, mas um de cada vez. mas pode adormecer novamente

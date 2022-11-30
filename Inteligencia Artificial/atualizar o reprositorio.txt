@@ -1,0 +1,14 @@
+#git remote add upstrem git@gitthub.com:meu reprositorio
+#git fetch upstream
+#git checkout master
+#git merge --allow-unrelated-histories upstream/master
+
+
+
+def subconjunto(lista1, lista2):
+    if lista1 == []:
+        return True
+
+    return lista1[0] in lista2 and subconjunto(lista1[1:], lista2)
+
+from cidades import *
