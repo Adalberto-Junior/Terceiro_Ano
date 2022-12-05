@@ -17,10 +17,26 @@ T =[ 0 1/2 1/2 0  0   0   0     %9
      0  0  0  0.2 0.5  0  0.3   %3
      0  0  0  0.1 0.4 0.3 0.2   %5
      0  0  0   0  0.3 0.3 0.4   %9
-     0  0  0   0    0  0   0]   %FIM
+     0  0  0   0    0  0   0]'   %FIM
 
 %(b) Qual a probabilidade de uma sequencia de ˆ 7 d´ıgitos iniciada por 91 e terminada em 9 ?
     %state = crawl(T, 1, 6)
 
     %Duviva!
+    px1_9 = 1;
+    p91 = T(2,1);
+    T5 = T^5;
+    Px7_9s1 = T5(6,2);
+    Px8_FIM_s_x7_9 = T(7,6);
+    p_seq_7_d_91_xxx_9 = px1_9 * p91 * Px7_9s1 * Px8_FIM_s_x7_9;
+   
+% (c) Qual a probabilidade de sequências de 7 dígitos iniciadas por 91?
+    p_9 = 1;
+    p_91 = T(2,1);
+    T6 = T^6;
+    Px8_FIM_s_x2_1 = T6(7,2);
+    p_seq_7_d_91_xxx = p_9 * p_91 * Px8_FIM_s_x2_1;
+
+    fprintf("A probabilidade de uma sequencia de 7 dígitos iniciada por 91 e terminada em 9 é %f\n",p_seq_7_d_91_xxx_9)
+    fprintf("A probabilidade de uma sequencia de 7 dígitos iniciada por 91 é %f\n",p_seq_7_d_91_xxx)
 
