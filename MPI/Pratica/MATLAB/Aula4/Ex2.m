@@ -18,7 +18,7 @@ word = genarate(N, imin,imax,symb);
 %T = 1e3
 fprintf("dados de T = 10^3\n");
 T = 1e3; %tamande palavras
-hascodes = zeros(1,T);
+hashcodes_S = zeros(1,T);
 num_atribuicoes = zeros(1,T);
 
 for i = 1:T
@@ -26,38 +26,58 @@ for i = 1:T
     %word{i}
     hash= string2hash(word{i});
     hash = rem(hash,T)+1;
-    hashcodes(i) = hash;
+    hashcodes_S(i) = hash;
     num_atribuicoes(hash) = num_atribuicoes(hash)+1;
 end
     toc;
 n_colisoes = sum(num_atribuicoes > 1);
 fprintf("Números de colisões: %d\n",n_colisoes);
 fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fprintf("Dados de hashstring:\n")
-hascodeshastr = zeros(1,T);
-num_atribuicoes = zeros(1,T);
+hascodeshastr  = zeros(1,T);
+num_atribuicoes_s = zeros(1,T);
 
 for i = 1:T
     tic 
     %word{i}
-    hash= hashstring(word{i},T);
+    hash= hashstring (word{i},T);
     hash = rem(hash,T)+1;
     hascodeshastr(i) = hash;
-    num_atribuicoes(hash) = num_atribuicoes(hash)+1;
+    num_atribuicoes_s(hash) = num_atribuicoes_s(hash)+1;
 end
     toc;
-n_colisoes = sum(num_atribuicoes > 1);
-fprintf("Números de colisões: %d\n",n_colisoes);
+n_colisoes_s = sum(num_atribuicoes_s > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_s);
 fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de  DJB31MA:\n")
+hascodesd_DJ = zeros(1,T);
+num_atribuicoes_DJ = zeros(1,T);
+
+for i = 1:T
+    tic 
+    %word{i}
+    hash= DJB31MA(word{i},T);
+    hash = rem(hash,T)+1;
+    hascodesd_DJ(i) = hash;
+    num_atribuicoes_DJ(hash) = num_atribuicoes_DJ(hash)+1;
+end
+    toc;
+n_colisoes_DJ = sum(num_atribuicoes_DJ > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_DJ);
+fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%
 %T = 5 * 10^5
+fprintf("______________________________________________________\n")
 fprintf("dados de T = 5 * 10^5\n")
 T1 = 5 * 1e5;
 word = genarate(T1, imin,imax,symb);
 %wordsiz = size(word);
-hascodes1 = zeros(1,T1);
-num_atribuicoes = zeros(1,T1);
+hashcodes1 = zeros(1,T1);
+num_atribuicoesT1 = zeros(1,T1);
 
 for i = 1:T1
     tic 
@@ -65,20 +85,59 @@ for i = 1:T1
     hash = string2hash(word{i});
     hash = rem(hash,T1)+1;
     hashcodes1(i) = hash;
-    num_atribuicoes(hash) = num_atribuicoes(hash)+1;
+    num_atribuicoesT1(hash) = num_atribuicoesT1(hash)+1;
 end
     toc
-n_colisoes = sum(num_atribuicoes > 1);
-fprintf("Números de colisões: %d\n",n_colisoes);
+n_colisoesT1 = sum(num_atribuicoesT1 > 1);
+fprintf("Números de colisões: %d\n",n_colisoesT1);
 fprintf("\n")
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de hashstring:\n")
+hascodeshastrT1  = zeros(1,T1);
+num_atribuicoes_s1T1 = zeros(1,T1);
+
+for i = 1:T1
+    tic 
+    %word{i}
+    hash= hashstring (word{i},T1);
+    hash = rem(hash,T1)+1;
+   hascodeshastrT1(i) = hash;
+   num_atribuicoes_s1T1(hash) = num_atribuicoes_s1T1(hash)+1;
+end
+    toc;
+n_colisoes_sT1 = sum(num_atribuicoes_s1T1 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_sT1);
+fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de  DJB31MA:\n")
+hascodesd_DJT1 = zeros(1,T1);
+num_atribuicoes_DJT1 = zeros(1,T1);
+
+for i = 1:T1
+    tic 
+    %word{i}
+    hash= DJB31MA(word{i},T1);
+    hash = rem(hash,T1)+1;
+    hascodesd_DJT1(i) = hash;
+    num_atribuicoes_DJT1(hash) = num_atribuicoes_DJT1(hash)+1;
+end
+    toc;
+n_colisoes_DJT1 = sum(num_atribuicoes_DJT1 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_DJT1);
+fprintf("\n")
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %T = 10^6 
+fprintf("______________________________________________________\n")
 fprintf("dados de T = 10^6\n");
 T2 = 1e6;
 word = genarate(T2, imin,imax,symb);
 %wordsiz = size(word);
-hascodes2 = zeros(1,T2);
-num_atribuicoes = zeros(1,T2);
+hashcodes2 = zeros(1,T2);
+num_atribuicoesT2 = zeros(1,T2);
 
 for i = 1:T2
     tic 
@@ -86,23 +145,62 @@ for i = 1:T2
     hash= string2hash(word{i});
     hash = rem(hash,T2)+1;
     hashcodes2(i) = hash;
-    num_atribuicoes(hash) = num_atribuicoes(hash)+1;
+    num_atribuicoesT2(hash) = num_atribuicoesT2(hash)+1;
 end
     toc
 
-n_colisoes = sum(num_atribuicoes > 1);
-fprintf("Números de colisões: %d\n",n_colisoes);
+n_colisoesT2 = sum(num_atribuicoes > 1);
+fprintf("Números de colisões: %d\n",n_colisoesT2);
 fprintf("\n");
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de hashstring:\n")
+hascodeshastrT2  = zeros(1,T2);
+num_atribuicoes_s1T2 = zeros(1,T2);
+
+for i = 1:T2
+    tic 
+    %word{i}
+    hash= hashstring (word{i},T2);
+    hash = rem(hash,T2)+1;
+   hascodeshastrT2(i) = hash;
+   num_atribuicoes_s1T2(hash) = num_atribuicoes_s1T2(hash)+1;
+end
+    toc;
+n_colisoes_sT2 = sum(num_atribuicoes_s1T2 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_sT2);
+fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de  DJB31MA:\n")
+hascodesd_DJT2 = zeros(1,T2);
+num_atribuicoes_DJT2 = zeros(1,T2);
+
+for i = 1:T2
+    tic 
+    %word{i}
+    hash= DJB31MA(word{i},T2);
+    hash = rem(hash,T2)+1;
+    hascodesd_DJT2(i) = hash;
+    num_atribuicoes_DJT2(hash) = num_atribuicoes_DJT2(hash)+1;
+end
+    toc;
+n_colisoes_DJT2 = sum(num_atribuicoes_DJT2 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_DJT2);
+fprintf("\n")
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%
 %T = 2 * 10^6
+fprintf("______________________________________________________\n")
 fprintf("dados de T = 2 * 10^6\n");
 T3 = 2 * 1e6;
 word = genarate(T3, imin,imax,symb);
 %wordsiz = size(word);
-hascodes3 = zeros(1,T3);
-num_atribuicoes = zeros(1,T3);
+hashcodes3 = zeros(1,T3);
+num_atribuicoesT3 = zeros(1,T3);
 
 for i = 1:T3
     tic 
@@ -110,9 +208,47 @@ for i = 1:T3
     hash= string2hash(word{i});
     hash = rem(hash,T3)+1;
     hashcodes3(i) = hash;
-    num_atribuicoes(hash) = num_atribuicoes(hash)+1;
+    num_atribuicoesT3(hash) = num_atribuicoesT3(hash)+1;
 end
     toc
-n_colisoes = sum(num_atribuicoes > 1);
-fprintf("Números de colisões: %d\n",n_colisoes);
+n_colisoesT3 = sum(num_atribuicoesT3 > 1);
+fprintf("Números de colisões: %d\n",n_colisoesT3);
+fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de hashstring:\n")
+hascodeshastrT3  = zeros(1,T3);
+num_atribuicoes_s1T3 = zeros(1,T3);
+
+for i = 1:T3
+    tic 
+    %word{i}
+    hash= hashstring (word{i},T3);
+    hash = rem(hash,T3)+1;
+   hascodeshastrT3(i) = hash;
+   num_atribuicoes_s1T3(hash) = num_atribuicoes_s1T3(hash)+1;
+end
+    toc;
+n_colisoes_sT3 = sum(num_atribuicoes_s1T3 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_sT3);
+fprintf("\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fprintf("Dados de  DJB31MA:\n")
+hascodesd_DJT3 = zeros(1,T3);
+num_atribuicoes_DJT3 = zeros(1,T3);
+
+for i = 1:T3
+    tic 
+    %word{i}
+    hash= DJB31MA(word{i},T3);
+    hash = rem(hash,T3)+1;
+    hascodesd_DJT3(i) = hash;
+    num_atribuicoes_DJT3(hash) = num_atribuicoes_DJT3(hash)+1;
+end
+    toc;
+n_colisoes_DJT3 = sum(num_atribuicoes_DJT3 > 1);
+fprintf("Números de colisões: %d\n",n_colisoes_DJT3);
+fprintf("\n")
+
+fprintf("__________________________FIM_________________________\n")
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
