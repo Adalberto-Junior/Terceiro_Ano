@@ -10,11 +10,10 @@
 #include <stdint.h>
 
 #include "ull.h"
+
 namespace ull
 {
     /* ************************************************* */
-
- /**ull::reset();**/
 
     /* The information support data structure  */
     struct Register
@@ -24,7 +23,7 @@ namespace ull
     };
 
     /* The linked-list support data structure */
-    struct Node
+    struct Node 
     {
         Register reg;
         struct Node *next;
@@ -36,6 +35,7 @@ namespace ull
 
     void reset()
     {
+
     }
 
     /* ************************************************* */
@@ -54,6 +54,19 @@ namespace ull
 
     void insert(uint32_t nmec, const char *name)
     {
+	    Node *n = new Node();
+	    n->reg.nmec = nmec;
+	    n->reg.nome = strdup(name);
+	    n->next = NULL;
+	    if(head == NULL){
+	      head = n;
+	    }
+	    Node *atual = head;
+	    Node *prev = null;
+	    while(){}
+
+
+
     }
 
     /* ************************************************* */
