@@ -1,0 +1,32 @@
+
+
+
+
+head--->first-->segund--->terd...null
+variavel prewi, ataul
+
+iniciar o atual com o head, 
+e o prew com o null
+primeiro passo alogar memoruia para o novo node
+...c++ --> NOde *n = new Node;
+
+c...> Nodd *n = (node*)mall.c....esquece3e
+if(n == null) { exit();}
+e iniciar com o regist
+
+o mesmo de strutural Node
+
+depois comparar o meu numero mec com o atua se for menor o p = o meu mec, se não p vai ser 
+
+
+nada: 
+
+
+
+getline
+strudup
+man strdup
+./a.out
+g++ ull.cpp main.cpp
+
+
